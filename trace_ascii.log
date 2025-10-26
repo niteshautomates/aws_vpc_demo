@@ -1,0 +1,149 @@
+== Info: Host ocvghag1k5.execute-api.ap-south-1.amazonaws.com:443 was resolved.
+== Info: IPv6: (none)
+== Info: IPv4: 3.108.33.223, 13.232.196.215
+== Info:   Trying 3.108.33.223:443...
+== Info: Connected to ocvghag1k5.execute-api.ap-south-1.amazonaws.com (3.108.33.223) port 443
+== Info: ALPN: curl offers h2,http/1.1
+== Info: (304) (OUT), TLS handshake, Client hello (1):
+=> Send SSL data, 352 bytes (0x160)
+0000: ...\..`.qmc..._..us`N`.U.Ukz.7!.K.fv/I ..X.J.k.z.{..XT.......d.>
+0040: ..3|....b.............0.,.(.$.......k.9...........=.5...../.+.'.
+0080: #.......g.3...E...<./...A.......................+............3.&
+00c0: .$... K....7&. ^....~....=.1...|9.hV.....4.2../ocvghag1k5.execut
+0100: e-api.ap-south-1.amazonaws.com..................................
+0140: .....................h2.http/1.1
+== Info:  CAfile: /etc/ssl/cert.pem
+== Info:  CApath: none
+== Info: (304) (IN), TLS handshake, Server hello (2):
+<= Recv SSL data, 122 bytes (0x7a)
+0000: ...v............BrJLB..p..j..A]r.l,<.N ..X.J.k.z.{..XT.......d.>
+0040: ..3|.........+.....3.$... ..Z.?.....W2.....t....t...LA.@.F
+== Info: (304) (IN), TLS handshake, Unknown (8):
+<= Recv SSL data, 19 bytes (0x13)
+0000: .................h2
+== Info: (304) (IN), TLS handshake, Certificate (11):
+<= Recv SSL data, 3843 bytes (0xf03)
+0000: ...........0...0.................Kb.p'.{.S0...*.H........0<1.0..
+0040: .U....US1.0...U....Amazon1.0...U....Amazon RSA 2048 M030...25073
+0080: 1000000Z..260828235959Z011/0-..U...&*.execute-api.ap-south-1.ama
+00c0: zonaws.com0.."0...*.H.............0............1Y.j....NKdDq....
+0100: 4...pC.r-....G.8...1.c|+*.q.....M..e#.....k......T+.B.Z.J...1.t?
+0140: ..Z.J.f.s./&..h...xV.,.F.7..^N..."..l3.;9=I.!r..v...'o..}[.f%%..
+0180: XG.......%:{.k..:.[..3...t.(2F.$b...f..?..q..9.L31.O.!...>e.P;".
+01c0: .....*..V#.y......6.z..2...IB......^...`............0...0...U.#.
+0200: .0...U.._.....X....UB....0...U...........YU....I..C..l..01..U...
+0240: *0(.&*.execute-api.ap-south-1.amazonaws.com0...U. ..0.0...g.....
+0280: 0...U...........0...U.%..0...+.......0;..U...40200...,.*http://c
+02c0: rl.r2m03.amazontrust.com/r2m03.crl0u..+........i0g0-..+.....0..!
+0300: http://ocsp.r2m03.amazontrust.com06..+.....0..*http://crt.r2m03.
+0340: amazontrust.com/r2m03.cer0...U.......0.0.....+.....y......p...l.
+0380: j.v..m}....w..._......3Ze....s....iw....]..U.....G0E.!..}4.?...S
+03c0: (....U...V.3 ..5.2....f. L......G.r..0...5RS3U...%....:4..w..1~W
+0400: E..E..8...A...!Z".....v...R.....]........H0F.!..i..r$..|..=.]...
+0440: .mxE|h..m....,..!........e:.#...T...~.R...$',.q....w..NC........
+0480: $&..e..._8..?rg}U7.......]........H0F.!...%s.......x..0Lb.y.(5w.
+04c0: *..t.....!...J.!..l......$~.v...*..$;..E9..0...*.H.............x
+0500: .......1..]....94.....!.B._.........G.,9w...&..P..a0...8.]V.2...
+0540: V..........N...v...VA..?."M......"...M..eJL.A.X...P...yx.....9f.
+0580: ..9gi.........d<....y..Nl...~9..8[.........-.N1.h...!..*c.sj....
+05c0: K.{...#.Cx.p.D..kp.x...).......IG....u.o....T..#..j...U.....d.A.
+0600: ...b0..^0..F........s.L...g....)..81y.0...*.H........091.0...U..
+0640: ..US1.0...U....Amazon1.0...U....Amazon Root CA 10...220823222604
+0680: Z..300823222604Z0<1.0...U....US1.0...U....Amazon1.0...U....Amazo
+06c0: n RSA 2048 M030.."0...*.H.............0...........Y(.....S..GWp[
+0700: ._.....mBFAcp.4.`=./.uf....YB.........,6.e........t...jW.Z..._.h
+0740: 2.........g|...".A).^.=^..;.&.../ha4......./8X.6..G......{.[o#..
+0780: ...4........_-.q.c...\.yROq....v.N.<.........2...g..Yv...._...g.
+07c0: (..T.....[.C6....N...g.&U.z..I..........C...N|.........Z0..V0...
+0800: U.......0.......0...U...........0...U.%..0...+.........+.......0
+0840: ...U......U.._.....X....UB....0...U.#..0.......4.......Y....N..0
+0880: {..+........o0m0/..+.....0..#http://ocsp.rootca1.amazontrust.com
+08c0: 0:..+.....0...http://crt.rootca1.amazontrust.com/rootca1.cer0?..
+0900: U...80604.2.0..http://crl.rootca1.amazontrust.com/rootca1.crl0..
+0940: .U. ..0.0...g.....0...*.H.....................=.. ...:..Y.=.A...
+0980: K...Y..g.R....|.....T.....~......X9.nZ..c5#{.4.W\..i.m[...L.Xb..
+09c0: ].r.(5vPcqm..`$.ka...P!b...w......pYr.T(...9..+Y.U.*.4.1O.4...?.
+0a00: ..w...gd.z.t....q....tU........IG......Djd.._^lZ... .Q.b.IK..|(P
+0a40: .,'....o.gor....H..^.M..+...d.2..*^........0...0..z..........J*'
+0a80: .....+.......0...*.H........0..1.0...U....US1.0...U....Arizona1.
+0ac0: 0...U....Scottsdale1%0#..U....Starfield Technologies, Inc.1;09..
+0b00: U...2Starfield Services Root Certificate Authority - G20...15052
+0b40: 5120000Z..371231010000Z091.0...U....US1.0...U....Amazon1.0...U..
+0b80: ..Amazon Root CA 10.."0...*.H.............0.........x.q.x..q.G.P
+0bc0: t}n...v..h.X!`.t../..-...CzN...6.....H...6L...#.>.7....Ih....v8.
+0c00: a....6..JV.E......t...59/.. P.lz.......G..P8....9X.....Hg0...x^o
+0c40: ..Q.0.f.Ef.T.....H....0-}-tp5..$...Yn.s...2F(.C........$.-K.q\^i
+0c80: .....8..P8o..-b....T.w.g....#.?@ . ...L>;$&...l............10..-
+0cc0: 0...U.......0....0...U...........0...U..........4.......Y....N..
+0d00: 0...U.#..0...._.....0+8...mJ.....0x..+........l0j0...+.....0.."h
+0d40: ttp://ocsp.rootg2.amazontrust.com08..+.....0..,http://crt.rootg2
+0d80: .amazontrust.com/rootg2.cer0=..U...60402.0...,http://crl.rootg2.
+0dc0: amazontrust.com/rootg2.crl0...U. ..0.0...U. .0...*.H............
+0e00: .b7B\...>.,...lE...z..X....>..%<.oP..5j..4.2!.HD...=..sm.....l.(
+0e40: ...Gy..~0[.;.`.w.....|^....{"....~.F....&W.09b.........>.ChlW...
+0e80: . ....j]..Jm.X...91_|s...j...'....F.~.r..R>...cw.i..9....EM.Q:.]
+0ec0: ]7dL~0.U$B.6.]...a.....$...t..{E)P9....5%..jG#1/\.....bQ.*...4.!
+0f00: ...
+== Info: (304) (IN), TLS handshake, CERT verify (15):
+<= Recv SSL data, 264 bytes (0x108)
+0000: .........\.`L.q.........H...c."#.30....E...........-...^k..O.w..
+0040: .!.Z5U=\1._;}..%..A.U....#u..NE......s..8.l....*8mIj.......adi.?
+0080: z..^.......|.../.Ucn......&.m.L......T0..Fz..'.=e...f..z...L...L
+00c0: ..5.[...=O9;a,.}..U.h/..0S....%6.(*.i7....aZ.|L..E^....rE\......
+0100: jZ.k}..&
+== Info: (304) (IN), TLS handshake, Finished (20):
+<= Recv SSL data, 36 bytes (0x24)
+0000: ... ...{.........6.qY.....{A.]1.Gmy.
+== Info: (304) (OUT), TLS handshake, Finished (20):
+=> Send SSL data, 36 bytes (0x24)
+0000: ... ..W......l.....I..~...Y....h.hdW
+== Info: SSL connection using TLSv1.3 / AEAD-AES128-GCM-SHA256 / [blank] / UNDEF
+== Info: ALPN: server accepted h2
+== Info: Server certificate:
+== Info:  subject: CN=*.execute-api.ap-south-1.amazonaws.com
+== Info:  start date: Jul 31 00:00:00 2025 GMT
+== Info:  expire date: Aug 28 23:59:59 2026 GMT
+== Info:  subjectAltName: host "ocvghag1k5.execute-api.ap-south-1.amazonaws.com" matched cert's "*.execute-api.ap-south-1.amazonaws.com"
+== Info:  issuer: C=US; O=Amazon; CN=Amazon RSA 2048 M03
+== Info:  SSL certificate verify ok.
+== Info: using HTTP/2
+== Info: [HTTP/2] [1] OPENED stream for https://ocvghag1k5.execute-api.ap-south-1.amazonaws.com/vpcs
+== Info: [HTTP/2] [1] [:method: POST]
+== Info: [HTTP/2] [1] [:scheme: https]
+== Info: [HTTP/2] [1] [:authority: ocvghag1k5.execute-api.ap-south-1.amazonaws.com]
+== Info: [HTTP/2] [1] [:path: /vpcs]
+== Info: [HTTP/2] [1] [user-agent: curl/8.7.1]
+== Info: [HTTP/2] [1] [accept: */*]
+== Info: [HTTP/2] [1] [content-type: application/json]
+== Info: [HTTP/2] [1] [content-length: 134]
+=> Send header, 166 bytes (0xa6)
+0000: POST /vpcs HTTP/2
+0013: Host: ocvghag1k5.execute-api.ap-south-1.amazonaws.com
+004a: User-Agent: curl/8.7.1
+0062: Accept: */*
+006f: Content-Type: application/json
+008f: Content-Length: 134
+00a4: 
+=> Send data, 134 bytes (0x86)
+0000:  {.           "cidr": "10.0.0.0/16",.           "subnets": ["10.
+0040: 0.1.0/24", "10.0.2.0/24"],.           "tags": {"env": "dev"}.   
+0080:      }
+== Info: upload completely sent off: 134 bytes
+<= Recv header, 13 bytes (0xd)
+0000: HTTP/2 401 
+<= Recv header, 37 bytes (0x25)
+0000: date: Sat, 25 Oct 2025 12:13:23 GMT
+<= Recv header, 32 bytes (0x20)
+0000: content-type: application/json
+<= Recv header, 20 bytes (0x14)
+0000: content-length: 26
+<= Recv header, 26 bytes (0x1a)
+0000: www-authenticate: Bearer
+<= Recv header, 35 bytes (0x23)
+0000: apigw-requestid: TALDkgashcwEPXQ=
+<= Recv header, 2 bytes (0x2)
+0000: 
+<= Recv data, 26 bytes (0x1a)
+0000: {"message":"Unauthorized"}
+<= Recv data, 0 bytes (0x0)
+== Info: Connection #0 to host ocvghag1k5.execute-api.ap-south-1.amazonaws.com left intact

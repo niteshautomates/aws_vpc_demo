@@ -1,0 +1,52 @@
+Problem Statement:
+
+AWS challenge Objective: Create an API based on AWS services that can create a VPC with multiple 
+subnets and store the results. We need to be able to retrieve the data of created resources from the API. 
+The code should be written in Python. The API should be protected with an authentication layer. 
+Authorization should be open to all authenticated users.
+
+
+-------------------------- Tutorials
+https://youtu.be/mhS9EwUCOrc?si=vGOqZGLsZS0q35BY
+---------------------------------Test 
+curl --trace-ascii trace_ascii.log -X  POST \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer eyJraWQiOiJTdUJCazNGeHRcL2h6UEhQSXJKNjgyYjFvNmtrUmI2OExubHhQbGF1MlNqUT0iLCJhbGciOiJSUzI1NiJ9.eyJhdF9oYXNoIjoiWVhSaXpqLTdZRlVzeEhRNERmT3VodyIsInN1YiI6IjExZDNiZGVhLTIwMzEtNzA2Yi01ODZiLTg2NTZiMDIzNDhjNSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuYXAtc291dGgtMS5hbWF6b25hd3MuY29tXC9hcC1zb3V0aC0xX1NtY1BaNW5EeCIsImNvZ25pdG86dXNlcm5hbWUiOiJuaXRlc2giLCJhdWQiOiJrYjhlcGczYXUxZ3JjZG5ndWEwaGxpMzdvIiwiZXZlbnRfaWQiOiJiYmQ5MzdkMS03MjdlLTQzNWYtYTM4Mi0xMTVlMDkwODZmYWIiLCJ0b2tlbl91c2UiOiJpZCIsImF1dGhfdGltZSI6MTc2MTM4OTE3MCwiZXhwIjoxNzYxMzkyNzcwLCJpYXQiOjE3NjEzODkxNzAsImp0aSI6IjIxZjJlNjViLWRmNTctNDU0ZC04MTc0LWNiNDI1NGI3YzEyZiIsImVtYWlsIjoibml0ZXNob3BzMDNAZ21haWwuY29tIn0.Ajo6722K1NQ1M-Ez6EDEMdNqQhfBg_vnMMAG7qqO313kZ-uc7L8jfRpZ7JWucP2Ofqkbt0DxQr5D8wM3bdV7RQMTLUh_TeMrHd_Iyvk0Re-8PRdaybUS0karGidAYWcvXzq8quNfu_8AQQLJjiYRt-5_Ut2KNKgVUFQi-CTEyTKjXhSlzeoq0y_YC78xknc_89eKFQgkZKOPrHhfTGL8wB9dHUhtcaYJfxjvCDZnLtMYw0JIV0yLedQ9tEFC-cIGk3L0Kmbn8oqV6oGgFv1x6klT0TfqQ7DqWPKaQYVh8qQxxPRXtetB2qNjJn7uqNupkpKz6MxVxTF84QtAKowhBA" \
+-d '{
+  "name": "my-vpc",
+  "cidr_block": "10.10.0.0/16",
+  "subnets": [
+    {"cidr_block": "10.10.1.0/24", "availability_zone": "ap-south-1a"},
+    {"cidr_block": "10.10.2.0/24", "availability_zone": "ap-south-1b"}
+  ],
+  "tags": {"project":"finops", "owner":"devops-team"},
+  "create_internet_gateway": true
+}' https://dezutfgxpf.execute-api.ap-south-1.amazonaws.com/vpcs
+
+
+
+----------------------
+
+curl --trace-ascii trace_ascii.log -X  POST -H "Content-Type: application/json" -H "Authorization Bearer eyJraWQiOiJTdUJCazNGeHRcL2h6UEhQSXJKNjgyYjFvNmtrUmI2OExubHhQbGF1MlNqUT0iLCJhbGciOiJSUzI1NiJ9.eyJhdF9oYXNoIjoiNUlNMjBIeEpYUHM1NlFBQ0JyTVVZdyIsInN1YiI6IjExZDNiZGVhLTIwMzEtNzA2Yi01ODZiLTg2NTZiMDIzNDhjNSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuYXAtc291dGgtMS5hbWF6b25hd3MuY29tXC9hcC1zb3V0aC0xX1NtY1BaNW5EeCIsImNvZ25pdG86dXNlcm5hbWUiOiJuaXRlc2giLCJhdWQiOiJrYjhlcGczYXUxZ3JjZG5ndWEwaGxpMzdvIiwidG9rZW5fdXNlIjoiaWQiLCJhdXRoX3RpbWUiOjE3NjEzOTMzMTIsImV4cCI6MTc2MTM5NjkxMiwiaWF0IjoxNzYxMzkzMzEyLCJqdGkiOiJiNjBkZGRkOS1hMzIxLTRmZTctYWE4My1jYWZiNWZmNmY3OTUiLCJlbWFpbCI6Im5pdGVzaG9wczAzQGdtYWlsLmNvbSJ9.bJHBHgKHB1zBx5mqraaIqMNiUVY0WARuHGjz52w9ykmLjK2tWZswC4W_xg7WC6EeSZjqq5dJDO1SEJ4LpGj4bremw8dTW9w7AIf0I5aKch_ITr3MeTLly1UYe0R2hTJqpw2pPK_8kw8WpmKEVNcs5SCq19tlghdybSShBVApwypDBCBhbykrQTnFvsH0QEUaU-NwAjQqms_x3trz-VoXHRI4wVJCNzQy5u3J7y-mKDRssZwwuQ3OjRgj6JDiskXGtQeT9p2EnwAG0LFgDFTL5BK7WQ8I57_FgCuB-raQOfohfu7I_RXyeLBlUEWC0WWs1pdOTW5x694rpaj72Pq28w" -d ' {
+           "cidr": "10.0.0.0/16",
+           "subnets": ["10.0.1.0/24", "10.0.2.0/24"],
+           "tags": {"env": "dev"}
+        }' https://ocvghag1k5.execute-api.ap-south-1.amazonaws.com/vpcs
+
+
+
+https://ocvghag1k5.execute-api.ap-south-1.amazonaws.com/vpcs/vpc-7ac0823b
+
+
+
+ curl --trace-ascii trace_ascii.log -X DELETE -H "Content-Type: application/json" -d '{
+  "resource_id": "vpc-2e34b1c3"
+}
+' https://ocvghag1k5.execute-api.ap-south-1.amazonaws.com/vpcs       
+
+
+
+
+
+--------------------------------JWT TOkens
+https://localhost:3000/#id_token=eyJraWQiOiJTdUJCazNGeHRcL2h6UEhQSXJKNjgyYjFvNmtrUmI2OExubHhQbGF1MlNqUT0iLCJhbGciOiJSUzI1NiJ9.eyJhdF9oYXNoIjoiNUlNMjBIeEpYUHM1NlFBQ0JyTVVZdyIsInN1YiI6IjExZDNiZGVhLTIwMzEtNzA2Yi01ODZiLTg2NTZiMDIzNDhjNSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuYXAtc291dGgtMS5hbWF6b25hd3MuY29tXC9hcC1zb3V0aC0xX1NtY1BaNW5EeCIsImNvZ25pdG86dXNlcm5hbWUiOiJuaXRlc2giLCJhdWQiOiJrYjhlcGczYXUxZ3JjZG5ndWEwaGxpMzdvIiwidG9rZW5fdXNlIjoiaWQiLCJhdXRoX3RpbWUiOjE3NjEzOTMzMTIsImV4cCI6MTc2MTM5NjkxMiwiaWF0IjoxNzYxMzkzMzEyLCJqdGkiOiJiNjBkZGRkOS1hMzIxLTRmZTctYWE4My1jYWZiNWZmNmY3OTUiLCJlbWFpbCI6Im5pdGVzaG9wczAzQGdtYWlsLmNvbSJ9.bJHBHgKHB1zBx5mqraaIqMNiUVY0WARuHGjz52w9ykmLjK2tWZswC4W_xg7WC6EeSZjqq5dJDO1SEJ4LpGj4bremw8dTW9w7AIf0I5aKch_ITr3MeTLly1UYe0R2hTJqpw2pPK_8kw8WpmKEVNcs5SCq19tlghdybSShBVApwypDBCBhbykrQTnFvsH0QEUaU-NwAjQqms_x3trz-VoXHRI4wVJCNzQy5u3J7y-mKDRssZwwuQ3OjRgj6JDiskXGtQeT9p2EnwAG0LFgDFTL5BK7WQ8I57_FgCuB-raQOfohfu7I_RXyeLBlUEWC0WWs1pdOTW5x694rpaj72Pq28w&access_token=eyJraWQiOiJ4UjlkeHh1TU1DN3BiWTJlQzlCdWRJeGo1UVRqVFpzUlRqZmZhMG5HN3FrPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiIxMWQzYmRlYS0yMDMxLTcwNmItNTg2Yi04NjU2YjAyMzQ4YzUiLCJ0b2tlbl91c2UiOiJhY2Nlc3MiLCJzY29wZSI6InBob25lIG9wZW5pZCBlbWFpbCIsImF1dGhfdGltZSI6MTc2MTM5MzMxMiwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLmFwLXNvdXRoLTEuYW1hem9uYXdzLmNvbVwvYXAtc291dGgtMV9TbWNQWjVuRHgiLCJleHAiOjE3NjEzOTY5MTIsImlhdCI6MTc2MTM5MzMxMiwidmVyc2lvbiI6MiwianRpIjoiMjJlZGM2YTQtODRmNS00MGZiLWIwY2EtNmE4MzZjMTliNGU2IiwiY2xpZW50X2lkIjoia2I4ZXBnM2F1MWdyY2RuZ3VhMGhsaTM3byIsInVzZXJuYW1lIjoibml0ZXNoIn0.bD3FI6IxtiWAhbSPRItqDtYwNlyq0RBRDH6TRzNRK2FnTq6hNg6FDHG71ivajP860BCY_0WeADbGTT2H6IO2XMrtu0PeL_lsIaYsvsJqqKc5jNSXBp9qkykU2KghCKewdMi_WAzd0wUKfX3g3cytUJNVQQfi9HB1dZwQPn-sjTusHriR6o8TKceapezFUwg--tcKRENlnVbhPM4KuaLlJiLpYAILRC3q0A5eON2gR6IcQMshGph7aLqyuNiOQH9PQVqrZ-CWge1J_M0LdzAFPoG5fekI0a5mu0gvxTCsB4Nh6wgj9xPW4s-AgnRXGP3daYjSwLO8nl5xhemj5Wrgcw&expires_in=3600&token_type=Bearer
