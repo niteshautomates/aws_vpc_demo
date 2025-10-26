@@ -33,27 +33,6 @@
                 "dynamodb:DeleteItem"
             ],
             "Resource": "*"
-        },
-        {
-            "Sid": "AllowDynamoDBWrite",
-            "Effect": "Allow",
-            "Action": [
-                "dynamodb:PutItem",
-                "dynamodb:GetItem",
-                "dynamodb:Query",
-                "dynamodb:Scan"
-            ],
-            "Resource": "arn:aws:dynamodb:ap-south-1:602061978233:table/vpc-resources"
-        },
-        {
-            "Sid": "AllowLogs",
-            "Effect": "Allow",
-            "Action": [
-                "logs:CreateLogGroup",
-                "logs:CreateLogStream",
-                "logs:PutLogEvents"
-            ],
-            "Resource": "*"
         }
     ]
 }

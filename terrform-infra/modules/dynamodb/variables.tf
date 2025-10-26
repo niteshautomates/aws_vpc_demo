@@ -35,9 +35,9 @@ variable "range_key" {
 variable "attributes" {
   description = "List of attribute definitions"
   type = list(object({
-    name = "resource_id"
+    name = string
     type = string
-  },{},{},{}))
+  }))
 }
 
 variable "ttl_enabled" {
@@ -73,7 +73,5 @@ variable "point_in_time_recovery" {
 variable "tags" {
   description = "Tags to apply to the table"
   type        = map(string)
-  default     = {
-    "app": "aws vpc creation demo"
-  }
+  default     = {}
 }
