@@ -1,5 +1,5 @@
 lambda_functions = {
-  "create-vpc-lambda" = {
+  "create_vpc" = {
     handler     = "create_vpc.lambda_handler"
     runtime     = "python3.13"
     source_path = "modules/lambda/lambda_code/create_vpc"
@@ -9,7 +9,7 @@ lambda_functions = {
     }
   }
 
-  "delete-vpc-lambda" = {
+  "delete_vpc" = {
     handler     = "delete_vpc.lambda_handler"
     runtime     = "python3.13"
     source_path = "modules/lambda/lambda_code/delete_vpc"
@@ -19,7 +19,7 @@ lambda_functions = {
     }
   }
 
-  "get-resource-lambda" = {
+  "get_resource" = {
     handler     = "get_resource.lambda_handler"
     runtime     = "python3.13"
     source_path = "modules/lambda/lambda_code/get_resource"
