@@ -1,0 +1,71 @@
+name: 'Terraform'
+
+on:
+  push:
+    branches: [ "develop" ]
+  pull_request:
+  workflow_dispatch:
+
+env:
+  TERRAFORM_DIR: backend-tf
+
+permissions:
+  contents: read
+
+jobs:
+  terraform:
+    name: 'Terraform'
+    runs-on: ubuntu-latest
+    environment: aws
+    
+
+    # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+    # Checkout the repository to the GitHub Actions runner
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: List files for debugging
+      run: ls -R
+    # Set up aws creds and default values
+    - name: Set AWS credentials
+      run: |
+        echo "AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}" >> $GITHUB_ENV
+        echo "AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}" >> $GITHUB_ENV
+        echo "AWS_DEFAULT_REGION=${{ env.AWS_REGION }}" >> $GITHUB_ENV
+        export AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}
+        export AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        export AWS_DEFAULT_REGION=${{ env.AWS_REGION }}      
+
+    # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v3
+      with:
+        terraform_version: 1.13
+
+    # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
+    - name: Terraform Init
+      run: terraform init -migrate-state
+      working-directory: ${{ env.TERRAFORM_DIR }}
+
+    # Checks that all Terraform configuration files adhere to a canonical format
+    - name: Terraform Format
+      run: terraform fmt
+      working-directory: ${{ env.TERRAFORM_DIR }}
+
+    - name: Terraform Plan
+      run: terraform plan 
+      working-directory: ${{ env.TERRAFORM_DIR }}
+
+    - name: Terraform Apply
+      if: ${{ github.event.inputs.action == 'apply'}} 
+      run: terraform apply -auto-approve
+      working-directory: ${{ env.TERRAFORM_DIR }}
+
+    - name: Terraform Destroy
+      if: ${{ github.event.inputs.action == 'destroy' }} 
+      run: terraform destroy -auto-approve 
+      working-directory: ${{ env.TERRAFORM_DIR }}
