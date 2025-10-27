@@ -26,6 +26,8 @@ jobs:
     # Checkout the repository to the GitHub Actions runner
     - name: Checkout
       uses: actions/checkout@v4
+    - name: List files for debugging
+      run: ls -R
     # Set up aws creds and default values
     - name: Set AWS credentials
       run: |
