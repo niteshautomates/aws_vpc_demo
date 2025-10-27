@@ -15,7 +15,7 @@ on:
           - apply
           - destroy
 env:
-  TERRAFORM_DIR: terraform_infra
+  TERRAFORM_DIR: terraform-infra
 
 permissions:
   contents: read
@@ -31,7 +31,6 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: terraform-infra
 
     steps:
     # Checkout the repository to the GitHub Actions runner
