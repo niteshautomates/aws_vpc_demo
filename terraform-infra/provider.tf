@@ -20,7 +20,3 @@ terraform {
     # profile, role_arn, endpoint, acl are NOT valid here; use AWS env vars or -backend-config
   }
 }
-
-provider "aws" {
-  region = "ap-south-1"
-}
