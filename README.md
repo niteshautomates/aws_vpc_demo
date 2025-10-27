@@ -19,31 +19,7 @@ It provisions Lambda-based microservices, a secure API Gateway layer protected b
 
 ## 🧩 Architecture Overview
 
-                    +-----------------------+
-                    |     AWS Cognito       |
-                    |  (JWT Authentication) |
-                    +----------+------------+
-                               |
-                               v
-                    +----------+------------+
-                    |    API Gateway (REST) |
-                    |  Secured by Cognito   |
-                    +----------+------------+
-                               |
-         +---------------------+----------------------+
-         |                    |                      |
-         v                    v                      v
-  +--------------+    +---------------+       +--------------+
-  | create_vpc   |    | get_resource  |       | delete_vpc   |
-  |  Lambda Fn   |    |  Lambda Fn    |       |  Lambda Fn   |
-  +--------------+    +---------------+       +--------------+
-         |                    |                      |
-         +------------------------------------------------+
-                                  |
-                                  v
-                       +----------------------+
-                       | DynamoDB (State Info)|
-                       +----------------------+
+      ![alt text](image.png)
 
 ## Terraform automates provisioning of:
 
@@ -97,24 +73,28 @@ All three Lambda functions are packaged as `.zip` files using Terraform’s `arc
 2. Extract the id_token (JWT) from the response.
 
 3. Call API Gateway using the token:
+## create_vpc
+curl --trace-ascii trace_ascii.log -X  POST -H "Content-Type: application/json" -H "Authorization Bearer YOUR_TOKEN_HERE" 
+-d ' {
+           "cidr": "10.0.0.0/16",
+           "subnets": ["10.0.1.0/24", "10.0.2.0/24"],
+           "tags": {"env": "dev"}
+        }' https://ocvghag1k5.execute-api.ap-south-1.amazonaws.com/vpcs
+## get_resource
+Fetch vpc_id from dynamodb_table: vpc-7ac0823b
+https://ocvghag1k5.execute-api.ap-south-1.amazonaws.com/vpcs/vpc-7ac0823b
 
+## delete_vpc
+ curl --trace-ascii trace_ascii.log -X DELETE --H "Content-Type: application/json" -H "Authorization Bearer YOUR_TOKEN_HERE" 
+  -d '{
+  "resource_id": "vpc-2e34b1c3"
+}' https://ocvghag1k5.execute-api.ap-south-1.amazonaws.com/vpcs 
 
 
 🧠 Terraform Automation
 
 The entire infrastructure is defined as code under the terrform-infra/ directory.
-terrform-infra/
-├── main.tf
-├── provider.tf
-├── variables.tf
-├── terraform.tfvars
-├── output.tf
-├── modules/
-│   ├── api-gateway/
-│   ├── lambda/
-│   ├── dynamodb/
-│   ├── IAM/
-│   └── cognito/
+![alt text](image-1.png)
  # Implement Continuous integreation using Github Actions
  With Following stages:
  * terraform init
