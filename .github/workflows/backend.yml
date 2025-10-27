@@ -5,6 +5,15 @@ on:
     branches: [ "develop" ]
   pull_request:
   workflow_dispatch:
+    inputs:
+      action:
+        description: "Backend action to perform (apply or destroy)"
+        required: true
+        default: "apply"
+        type: choice
+        options:
+          - apply
+          - destroy
 
 env:
   TERRAFORM_DIR: backend-tf
