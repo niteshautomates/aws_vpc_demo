@@ -20,7 +20,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: ./aws_vpc_demo/terraform_infra
+        working-directory: ./terraform_infra
 
     steps:
     # Checkout the repository to the GitHub Actions runner
