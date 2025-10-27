@@ -8,7 +8,7 @@ from datetime import datetime
 dynamodb = boto3.resource('dynamodb')
 ec2 = boto3.client('ec2')
 
-TABLE_NAME = os.environ.get('DDB_TABLE', 'vpc-resources')
+TABLE_NAME = os.environ.get('DDB_TABLE', 'vpc-resources-tb')
 
 def lambda_handler(event, context):
     try:

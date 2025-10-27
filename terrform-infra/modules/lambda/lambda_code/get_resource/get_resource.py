@@ -4,7 +4,7 @@ import json
 import boto3
 
 dynamodb = boto3.resource('dynamodb')
-TABLE_NAME = os.environ.get('DDB_TABLE', 'vpc-resources')
+TABLE_NAME = os.environ.get('DDB_TABLE', 'vpc-resources-tb')
 table = dynamodb.Table(TABLE_NAME)
 
 def lambda_handler(event, context):

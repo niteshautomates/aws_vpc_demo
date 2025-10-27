@@ -4,3 +4,4 @@
 *.lock.hcl
 .terraform
 *lock.info
+*.zip
