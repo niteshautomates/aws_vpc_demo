@@ -9,3 +9,7 @@ variable "lambda_functions" {
 }
 
 
+variable "region" {
+  type    = string
+  default = "ap-south-1"
+}
