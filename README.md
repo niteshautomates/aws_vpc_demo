@@ -66,13 +66,15 @@ All three Lambda functions are packaged as `.zip` files using Terraform’s `arc
 ### Accessing the API with JWT Token
 
 1. **Authenticate via Cognito:**
-   ```bash
-   curl -X POST https://<cognito-domain>.auth.<region>.amazoncognito.com/oauth2/token \
-     -H "Content-Type: application/x-www-form-urlencoded" \
-     -d "grant_type=password&client_id=<CLIENT_ID>&username=<USER>&password=<PASS>"
+  ==> Create a Cognito User pools and create client app
+  ==> Use this information to register user to the use pool
 2. Extract the id_token (JWT) from the response.
-
+    https://YOUR_DOMAIN/login?client_id=YOU_CLIENT_ID&response_type=code&scope=email+openid+phone&redirect_uri=https%3A%2F%2Flocalhost%3A3000
+    Change code to token in URL after changing OAuth 2.0 grant types to Implicit Grants
 3. Call API Gateway using the token:
+    Copy tokens from URL and use JWT.io tp verify audience and other information
+    Copy and paste access or id token to use while calling api's
+    
 ## create_vpc
 curl --trace-ascii trace_ascii.log -X  POST -H "Content-Type: application/json" -H "Authorization Bearer YOUR_TOKEN_HERE" 
 -d ' {
