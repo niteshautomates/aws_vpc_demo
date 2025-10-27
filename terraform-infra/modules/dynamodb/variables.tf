@@ -22,12 +22,12 @@ variable "write_capacity" {
 }
 
 variable "hash_key" {
-  description = "Hash (partition) key name"
+  description = "partition key name"
   type        = string
 }
 
 variable "range_key" {
-  description = "Range (sort) key name (optional)"
+  description = "sort key name"
   type        = string
   default     = null
 }

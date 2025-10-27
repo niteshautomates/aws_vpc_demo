@@ -90,5 +90,4 @@ module "api_gateway" {
     delete_vpc   = { arn = module.lambda_functions["delete_vpc"].arn, name = module.lambda_functions["delete_vpc"].name }
     create_vpc   = { arn = module.lambda_functions["create_vpc"].arn, name = module.lambda_functions["create_vpc"].name }
   }
-  cognito_authorizer_arn = "arn:aws:cognito-idp:ap-south-1:602061978233:userpool/ap-south-1_SmcPZ5nDx"
 }

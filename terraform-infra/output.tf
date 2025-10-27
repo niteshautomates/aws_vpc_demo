@@ -4,4 +4,3 @@
 output "congito-authorizer-name" {
   value = module.api_gateway.cognito_authorizer_name
 }
-

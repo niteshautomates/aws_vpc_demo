@@ -5,7 +5,7 @@ resource "aws_apigatewayv2_api" "http_api" {
   
 }
 
-# 2️⃣ Create Lambda Integrations (one per function)
+# Create Lambda Integrations (one per function)
 resource "aws_apigatewayv2_integration" "lambda_integrations" {
   for_each = var.lambda_map
 
@@ -28,7 +28,7 @@ resource "aws_apigatewayv2_authorizer" "custom-authorizer" {
 }
 
 
-# 3️⃣ Define Routes (HTTP method → Lambda)
+#  Define Routes
 resource "aws_apigatewayv2_route" "routes" {
   for_each = {
     "GET /vpcs/{resource_id}" = "get_resource"
@@ -49,14 +49,14 @@ resource "aws_apigatewayv2_route" "routes" {
 
 }
 
-# 4️⃣ Default Stage (auto-deploy)
+#  Default Stage 
 resource "aws_apigatewayv2_stage" "default_stage" {
   api_id      = aws_apigatewayv2_api.http_api.id
   name        = "$default"
   auto_deploy = true
 }
 
-# 5️⃣ Allow API Gateway to invoke Lambda
+# Allow API Gateway to invoke Lambda
 resource "aws_lambda_permission" "apigw_lambda_permissions" {
   for_each = var.lambda_map
 

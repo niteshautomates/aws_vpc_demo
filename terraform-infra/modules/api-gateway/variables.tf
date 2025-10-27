@@ -5,7 +5,7 @@ variable "api_name" {
 
 variable "region" {
   type        = string
-  description = "AWS region where API Gateway and Lambdas are deployed"
+  description = "AWS region of API Gateway and Lambdas"
 }
 
 variable "lambda_map" {
@@ -13,14 +13,9 @@ variable "lambda_map" {
     arn  = string
     name = string
   }))
-  description = "Map of Lambda functions with arn and name. Keys: get_resource, delete_resource, create_vpc"
+  description = "Map of Lambda functions with arn and name. Keys: get_resource, delete_vpc, create_vpc"
 }
 
-variable "cognito_authorizer_arn" {
-  description = "ARN of existing Cognito Authorizer to attach to routes"
-  type        = string
-  default     = null
-}
 
 variable "cognito_authorizer_name" {
   type        = string

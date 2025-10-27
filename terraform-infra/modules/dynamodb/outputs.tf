@@ -1,14 +1,4 @@
 output "table_name" {
-  description = "Name of the DynamoDB table"
+  description = "DynamoDB table name"
   value       = aws_dynamodb_table.vpc-resources-ddb.name
-}
-
-output "table_arn" {
-  description = "ARN of the DynamoDB table"
-  value       = aws_dynamodb_table.vpc-resources-ddb.arn
-}
-
-output "stream_arn" {
-  description = "ARN of the DynamoDB stream (if enabled)"
-  value       = try(aws_dynamodb_table.vpc-resources-ddb.stream_arn, null)
 }

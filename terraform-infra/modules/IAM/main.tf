@@ -22,6 +22,9 @@ resource "aws_iam_role" "this" {
   }, var.tags)
 }
 
+data "aws_region" "current" {}
+data "aws_caller_identity" "current" {}
+
 ###########################################
 # Custom IAM Policies from JSON Files
 ###########################################
@@ -39,8 +42,6 @@ resource "aws_iam_policy" "custom_policies" {
   })
 }
 
-data "aws_region" "current" {}
-data "aws_caller_identity" "current" {}
 
 ###########################################
 # Attach Each Policy to the Role
