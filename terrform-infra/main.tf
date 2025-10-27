@@ -76,14 +76,16 @@ module "lambda_functions" {
 #Create API Gateway to access lambda functions
 
 module "api_gateway" {
-  depends_on = [ module.lambda_iam_role,module.lambda_functions,module.dynamodb ]
-  source   = "./modules/api-gateway"
-  api_name = "vpc-management-api"
-  region   = "ap-south-1"
+  depends_on              = [module.lambda_iam_role, module.lambda_functions, module.dynamodb]
+  source                  = "./modules/api-gateway"
+  api_name                = "vpc-management-api"
+  region                  = "ap-south-1"
+  cognito_authorizer_name = "custom-authorizer"
 
   lambda_map = {
     get_resource = { arn = module.lambda_functions["get_resource"].arn, name = module.lambda_functions["get_resource"].name }
     delete_vpc   = { arn = module.lambda_functions["delete_vpc"].arn, name = module.lambda_functions["delete_vpc"].name }
     create_vpc   = { arn = module.lambda_functions["create_vpc"].arn, name = module.lambda_functions["create_vpc"].name }
   }
+  cognito_authorizer_arn = "arn:aws:cognito-idp:ap-south-1:602061978233:userpool/ap-south-1_SmcPZ5nDx"
 }

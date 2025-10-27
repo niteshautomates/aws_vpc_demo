@@ -7,3 +7,7 @@ output "api_id" {
   description = "API ID of the HTTP API"
   value       = aws_apigatewayv2_api.http_api.id
 }
+
+output "cognito_authorizer_name" {
+  value = aws_apigatewayv2_authorizer.custom-authorizer.name
+}
